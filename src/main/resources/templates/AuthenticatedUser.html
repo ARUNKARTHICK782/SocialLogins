@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 30px;
+        }
+        .profile-photo {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .user-info {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="user-info">
+    <img class="profile-photo" th:src="${picture!=null?picture:''}" >
+    <h2 th:text="${name}"></h2>
+    <p th:text="${email}"></p>
+    <p th:if="${bio != null}" th:text="'Bio : '+${bio}"></p>
+    <p th:if="${followers != null}" th:text="'Followers : '+${followers}"></p>
+    <p th:if="${following != null}" th:text="'Following : '+${following}"></p>
+</div>
+</body>
+</html>
